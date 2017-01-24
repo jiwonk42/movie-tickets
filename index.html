@@ -10,17 +10,29 @@
 </head>
 <body>
   <div class="container">
-    <h1>Address Book</h1>
+    <h1>Movie Ticket</h1>
     <div class="row">
-
-
-           <!-- Buttons -->
-          <button type="submit" class="btn">Add</button>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="new-movie">Name</label>
+          <div class="radio">
+            <label><input type="radio" name="movies">Option 1</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="movies">Option 2</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="movies">Option 3</label>
+          </div>
+        </div>
+        <!-- Buttons -->
+        <button type="submit" class="btn">Add</button>
         </form>
         <!-- Display results -->
         <h2>Your Total is:</h2>
         <span class="results"></span>
       </div>
+    </div>
   </div>
 </body>
 </html>
