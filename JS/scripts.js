@@ -1,5 +1,6 @@
 //BUSINESS LOGIC
 var ticketPrice = 0;
+var discount = "";
 //Create constructor
 function Choice(movie,time,age) {
   this.movie = movie;
@@ -8,9 +9,9 @@ function Choice(movie,time,age) {
 }
 //Create prototype to determine price on movie choice
 Choice.prototype.moviePrice = function () {
-  if (this.movie === 1) {
+  if (this.movie === "Lala Land") {
     ticketPrice += 5;
-  } else if (this.movie === 2) {
+  } else if (this.movie === "Dark Knight") {
     ticketPrice+= 7;
   } else { ticketPrice += 10; }
   return ticketPrice;
@@ -28,9 +29,11 @@ Choice.prototype.timePrice = function() {
 Choice.prototype.agePrice = function() {
   if(this.age < 25 ) {
     ticketPrice+=1;
+    discount = "youth";
   } else if (this.age >25 && this.age <60) {
     ticketPrice+=3;
-  } else { ticketPrice-=5; }
+    discount = "regular";
+  } else { ticketPrice-=5; discount = "senior"; }
   return ticketPrice;
 }
 //USER INTERFACE
@@ -38,7 +41,7 @@ $(document).ready(function(){
   $("form").submit(function(event){
     event.preventDefault();
     //Define variable value with user input
-    var inputtedMovie = parseInt($("input:radio[name=movies]:checked").val());
+    var inputtedMovie = $("input:radio[name=movies]:checked").val();
     var inputtedTime = parseInt($("select#showtime").val());
     var inputtedAge = parseInt($("input#age").val());
     //Make new object using constructor and varibles
@@ -50,8 +53,11 @@ $(document).ready(function(){
       userChoice.timePrice();
       userChoice.agePrice();
       console.log(ticketPrice);
-      $("#results").append(ticketPrice);
       $(".results").show();
+      $("#results").append(ticketPrice);
+      $(".movie").text($("input:radio[name=movies]:checked").val());
+      $(".time").text($("#showtime option:selected").text());
+      $(".age").text(discount);
     }
   });
 });
