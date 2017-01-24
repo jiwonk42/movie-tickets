@@ -1,8 +1,7 @@
 //BUSINESS LOGIC
-
 var ticketPrice = 0;
 //Create constructor
-function Choice(movie,time,age) = {
+function Choice(movie,time,age) {
   this.movie = movie;
   this.time = time;
   this.age = age;
@@ -30,8 +29,8 @@ Choice.prototype.agePrice = function() {
   if(this.age < 25 ) {
     ticketPrice+=1;
   } else if (this.age >25 && this.age <60) {
-    ticketPrice-=5;
-  } else { ticketPrice+=3; }
+    ticketPrice+=3;
+  } else { ticketPrice-=5; }
   return ticketPrice;
 }
 //USER INTERFACE
