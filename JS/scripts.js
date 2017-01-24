@@ -17,6 +17,13 @@ Choice.prototype.moviePrice = function () {
   return ticketPrice;
 };
 
+Choice.prototype.timePrice = function() {
+  if(this.time === 1 || this.time === 2) {
+    ticketPrice += 1;
+  } else if(this.time === 3 || this.time === 4) {
+    ticketPrice += 5;
+  } else { ticketPrice += 3; }
+}
 
 //USER INTERFACE
 $(document).ready(function(){
