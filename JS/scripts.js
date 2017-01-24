@@ -47,11 +47,11 @@ $(document).ready(function(){
       alert("Please enter a valid age");
     } else {
       userChoice.moviePrice();
-      console.log(ticketPrice);
       userChoice.timePrice();
-      console.log(ticketPrice);
       userChoice.agePrice();
       console.log(ticketPrice);
+      $("#results").append(ticketPrice);
+      $(".results").show();
     }
   });
 });
