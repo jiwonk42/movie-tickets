@@ -11,8 +11,8 @@
 <body>
   <div class="container">
     <h1>Movie Ticket</h1>
-    <form>
-    <div class="row">
+    <div class="row information">
+      <form>
       <div class="col-md-6">
         <!-- Name -->
         <div class="form-group">
@@ -30,7 +30,7 @@
         <!-- Time -->
         <div class="form-group">
          <label for="time">Show Time:</label>
-         <select multiple class="form-control" id="showtime">
+         <select class="form-control" id="showtime">
            <option value="1">12:00pm</option>
            <option value="2">1:00pm</option>
            <option value="3">7:00pm</option>
@@ -43,14 +43,22 @@
          <label for="age">Age</label>
          <input type="number" class="form-control" id="age">
        </div>
+       <!-- Time -->
+       <div class="form-group">
+        <label for="quantity">Number of tickets: (maximum 4)</label>
+        <select class="form-control" id="quantity">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
         <!-- Buttons -->
         <button type="submit" class="btn">Submit</button>
         </form>
         <!-- Display results -->
         <div class="results">
-          <h2>Your Total is:</h2>
-          $<span id="results"></span>
-          <p>You are watching <span class="movie"></span></p> at <span class="time"></span> at <span class="age"></span> price.
+          <ul id="results"></ul>
         </div>
       </div>
     </div>
